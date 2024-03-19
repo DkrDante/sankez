@@ -1,0 +1,16 @@
+#gameCanvas {
+     border: 1px solid black;
+     display: block;
+     margin: 0 auto;
+     background: midnightblue;
+}
+
+body {
+     background: black;
+}
+
+h2 {
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+     color: white;
+     font-size: 300%;
+}
