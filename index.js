@@ -14,16 +14,19 @@ document.addEventListener('DOMContentLoaded', () => {
      let foodsound = new Audio("images/munching.mp3");
      let ending = new Audio("images/ending.mp3");
      let movesound = new Audio("images/moving.mp3");
+     let starting = false;
+
+
 
      function drawSnake() {
-          ctx.fillStyle = 'green';
+          ctx.fillStyle = 'black';
           snake.forEach(({ x, y }) => {
                ctx.fillRect(x * gridSize, y * gridSize, gridSize, gridSize);
           });
      }
 
      function drawFood() {
-          ctx.fillStyle = 'red';
+          ctx.fillStyle = '#D3333B';
           ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize, gridSize);
      }
 
@@ -75,12 +78,14 @@ document.addEventListener('DOMContentLoaded', () => {
           return false;
      }
 
+
      function main() {
           if (checkCollision()) {
                alert('Kyu nahi ho rahi h padhai, score is: ' + score);
                score = 0;
                ending.play();
                updateScore();
+               resetGame();
                return;
           }
 
@@ -89,7 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
           drawSnake();
           update();
 
-          setTimeout(main, 235);
+          setTimeout(main, 170);
+     }
+     function gameOver() {
+          alert('Game Over!\nScore: ' + score + '\nHigh Score: ' + highScore);
+          resetGame();
+
      }
 
      document.addEventListener('keydown', (event) => {
